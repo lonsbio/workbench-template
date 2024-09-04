@@ -18,10 +18,10 @@ carpentry: 'incubator'
 carpentry_description: 'Lesson Description'
 
 # Overall title for pages.
-title: 'Sequence Quality 
+title: 'Sequence Quality'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~
+created: '2024-09-04'
 
 # Comma-separated list of keywords for the lesson
 keywords: 'bioinformatics, FASTQ, quality control' 
