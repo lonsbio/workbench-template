@@ -21,7 +21,7 @@ carpentry_description: 'Lesson Description'
 title: 'Sequence Quality 
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: '2024-09-04'
+created: ~
 
 # Comma-separated list of keywords for the lesson
 keywords: 'bioinformatics, FASTQ, quality control' 
