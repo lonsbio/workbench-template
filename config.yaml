@@ -67,6 +67,11 @@ contact: 'andrew.lonsdale@lonsbio.com.au'
 # Order of episodes in your lesson
 episodes: 
 - introduction.md
+- fastqe.md
+- before.md
+- fastp.md
+- after.md
+- conclusion.md
 
 # Information for Learners
 learners: 
