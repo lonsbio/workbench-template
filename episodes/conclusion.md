@@ -1,7 +1,7 @@
 ---
-title: "Using Markdown"
-teaching: 10
-exercises: 2
+title: "Conclusion"
+teaching: 2
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
