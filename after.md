@@ -1,5 +1,5 @@
 ---
-title: "Using Markdown"
+title: "Sequence Quality after QC"
 teaching: 10
 exercises: 2
 ---
