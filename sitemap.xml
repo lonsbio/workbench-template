@@ -13,7 +13,22 @@
     <loc>https://lonsbio.github.io/workbench-template/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://lonsbio.github.io/workbench-template/after.html</loc>
+  </url>
+  <url>
     <loc>https://lonsbio.github.io/workbench-template/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/before.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/conclusion.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/fastp.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/fastqe.html</loc>
   </url>
   <url>
     <loc>https://lonsbio.github.io/workbench-template/images.html</loc>
@@ -34,7 +49,22 @@
     <loc>https://lonsbio.github.io/workbench-template/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://lonsbio.github.io/workbench-template/instructor/after.html</loc>
+  </url>
+  <url>
     <loc>https://lonsbio.github.io/workbench-template/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/instructor/before.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/instructor/conclusion.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/instructor/fastp.html</loc>
+  </url>
+  <url>
+    <loc>https://lonsbio.github.io/workbench-template/instructor/fastqe.html</loc>
   </url>
   <url>
     <loc>https://lonsbio.github.io/workbench-template/instructor/images.html</loc>
