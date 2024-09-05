@@ -1,5 +1,5 @@
 ---
-title: "Using Markdown"
+title: "Introduction to fastp"
 teaching: 10
 exercises: 2
 ---
