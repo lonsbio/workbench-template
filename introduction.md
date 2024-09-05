@@ -1,20 +1,19 @@
 ---
-title: "Using Markdown"
-teaching: 10
+title: "Quality Control for Next Generation Sequencing"
+teaching: 5
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- How to perform quality control of NGS raw data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
-
+- Assess short reads FASTQ quality using `FASTQE`
+- Compare reads before and after quality filtering with `fastp`
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
