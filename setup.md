@@ -16,7 +16,7 @@ Download the sample data, taken from a microbiome  sequencing project investigat
 sexually dimorphic metagenomes associated with garter snake tissues:
 
 - [Female snake, mouth sample](https://qubeshub.org/publications/1092/serve/2/4142?el=1&download=1)
-- [Female snake, musk sample]([https://qubeshub.org/publications/1092/serve/2/4143?el=1&download=1)
+- [Female snake, musk sample](https://qubeshub.org/publications/1092/serve/2/4143?el=1&download=1)
   
 ## Software Setup
 
