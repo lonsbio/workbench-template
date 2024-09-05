@@ -1,19 +1,19 @@
 ---
-title: "Using Markdown"
-teaching: 10
+title: "Introduction to FASTQE"
+teaching: 3
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- How do you run `FASTQE` on NGS data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Demonstrate `FASTQE` on data
+- Document the command line options
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
