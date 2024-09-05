@@ -12,8 +12,12 @@ FIXME: place any data you want learners to use in `episodes/data` and then use
        a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
        link to it, replacing the example.com link.
 -->
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
+Download the sample data, taken from a microbiome  sequencing project investigating
+sexually dimorphic metagenomes associated with garter snake tissues:
 
+- [Female snake, mouth sample](https://qubeshub.org/publications/1092/serve/2/4142?el=1&download=1)
+- [Female snake, musk sample]([https://qubeshub.org/publications/1092/serve/2/4143?el=1&download=1)
+  
 ## Software Setup
 
 ::::::::::::::::::::::::::::::::::::::: discussion
