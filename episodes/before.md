@@ -1,6 +1,6 @@
 ---
-title: "Using Markdown"
-teaching: 10
+title: "Sequence Quality before QC"
+teaching: 3
 exercises: 2
 ---
 
