@@ -18,7 +18,7 @@ carpentry: 'lonsbio'
 carpentry_description: 'Lesson Description'
 
 # Overall title for pages.
-title: 'Sequence Quality'
+title: 'Quality Control for Next Generation Sequencing'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2024-09-04'
