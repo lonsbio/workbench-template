@@ -47,8 +47,8 @@ associated with the lessons. They appear in the "Instructor View"
 
 What is the output of this command?
 
-```r
-paste("This", "new", "lesson", "looks", "good")
+```bash
+fastqe --help
 ```
 
 :::::::::::::::::::::::: solution 
@@ -56,7 +56,23 @@ paste("This", "new", "lesson", "looks", "good")
 ## Output
  
 ```output
-[1] "This new lesson looks good"
+Read one or more FASTQ files, compute quality stats for each file, print as emoji... for some reason.😄 
+
+🚨 Rust and WebAssembly beta: only command line options with a  ✅  are functional  
+ rustc 1.75.0-beta.7 emcc 3.1.50
+
+Usage: fastqe [OPTIONS] [FASTQ_FILE]...
+
+Arguments:
+  [FASTQ_FILE]...  Input FASTQ files
+
+Options:
+      --noheader              Hide the header before sample output ❌
+      --output   Write output to OUTPUT_FILE instead of stdout
+      --long     Buffer memory for long reads up to READ_BUFFER bp long ❌ [default: 500]
+      --log         Record program progress in LOG_FILE ✅
+  -h, --help                  Print help
+  -V, --version               Print version
 ```
 
 :::::::::::::::::::::::::::::::::
