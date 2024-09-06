@@ -72,26 +72,16 @@ You can add a line with at least three colons and a `solution` tag.
 
 Here’s brief background on the in class metagenomics project that we’re collecting sequencing data for. Garter snakes excrete sexually dimorphic pheromones to attract a mate. The hypothesis of our experiment is that male and female garter snakes host unique microbial communities in their mouths, cloacae and musk glands that contribute to sexually dimorphic bioengineering of these pheromone molecules. Figure 1 provides an overview of our 16S metagenomics analysis pipeline. For this lesson though, all you need are the FASTQ files.
 
-![Figure 1. Overview of the in class metagenomics project. Using a saline swabbing technique, microbial samples were collected from garter snake tissues in class (A). Swabs were placed in sterile tubes to release collected microbes and DNA was extracted for downstream analysis (B). Barcoded primers were used to PCR amplify the microbial 16S ribosomal DNA repeat genes for each sample followed by Illumina sequencing of PCR amplicons (C-D). The DNA Subway Purple Line web-based software can be used to analyze FASTQ data files generated from Illumina sequencing to reveal the microbial population of our swabs (E). Garter snakes were provided by Dr. Rocky Parker in the JMU Department of Biology (A; yellow shirt).](episodes/fig1.png){alt='Images of experiment and data workflow'}
+![Figure 1. Overview of the in class metagenomics project. Using a saline swabbing technique, microbial samples were collected from garter snake tissues in class (A). Swabs were placed in sterile tubes to release collected microbes and DNA was extracted for downstream analysis (B). Barcoded primers were used to PCR amplify the microbial 16S ribosomal DNA repeat genes for each sample followed by Illumina sequencing of PCR amplicons (C-D). The DNA Subway Purple Line web-based software can be used to analyze FASTQ data files generated from Illumina sequencing to reveal the microbial population of our swabs (E). Garter snakes were provided by Dr. Rocky Parker in the JMU Department of Biology (A; yellow shirt).](https://raw.githubusercontent.com/lonsbio/workbench-template/main/fig1.png){alt='Images of experiment and data workflow'}
 
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
 ::::::::::::::::::::::::::::::::::::: callout
 
 When using the command line code, lines that start with the # sign are typically text descriptors or instructions, not lines of code.
 
 The # character is used to indicate comments. A line starting with # line doesn’t do anything, in this case it’s just telling you what the next line of code does which is navigate to your computer’s desktop
-○ Wewillstickwiththisconventionthroughouttheactivity
-○ Commentscanoccuranywhereinaline,anythingafterthe#willbe
-ignored
+- We will stick with this convention throughout the activity
+- Comments can occur anywhere in a line, anything after the # will be ignored
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -99,7 +89,6 @@ ignored
 ## PHRED scores
 
 THE FASTQ format encodes quality as ASCII values, which are mapped to quality scores in the PHRED format. The PHRED score is calculated from P, the probability of a base-calling error:
-
 
 $Q = -10\log{P}$
 
