@@ -216,8 +216,9 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
+<li><a href="#case-study">Case Study</a></li>
 <li><a href="#figures">Figures</a></li>
-<li><a href="#math">Math</a></li>
+<li><a href="#phred-scores">PHRED scores</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -318,7 +319,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction to FASTQE</h1>
-        <p>Last updated on 2024-09-05 |
+        <p>Last updated on 2024-09-06 |
 
         <a href="https://github.com/lonsbio/workbench-template/edit/main/episodes/fastqe.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -339,7 +340,8 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How do you run <code>FASTQE</code> on NGS data?</li>
+<ul><li>How can you analyse the quality of NGS data from the command
+line?</li>
 </ul></div>
 </div>
 </div>
@@ -347,58 +349,49 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Demonstrate <code>FASTQE</code> on data</li>
-<li>Document the command line options</li>
+<ul><li>Introduce students to writing basic command line scripts</li>
+<li>Analyze and assess the quality of FASTQ formatted short read NGS
+data</li>
+<li>Trim/filter low quality reads in FASTQ files</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a>
-for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R
-Markdown</a> for dynamic files that can render code into output. Please
-refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal"><li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol><div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<hr class="half-width"><p>The 1st step of any Next Generation Sequencing (NGS) analysis
+pipeline is checking the quality of the raw sequencing reads in each
+FASTQ formatted file. If the sequence quality is poor, then your
+resulting downstream analysis will be inaccurate and misleading. FastQC
+is a popular software used to provide an overview of basic quality
+metrics for NGS data. In this lesson, you will use an even more
+universal form of communication to analyze FASTQ files, THE EMOJI.</p>
+<p>The tool we will use for this visualisation is <code>faste</code></p>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
-<p>Inline instructor notes can help inform instructors of timing
-challenges associated with the lessons. They appear in the “Instructor
-View”</p>
+<p>Familairity with FASTQ format is helpful.</p>
 </div>
 </div>
 </div>
 </div>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
+<div id="challenge-1-can-you-run-fastqe" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<div id="challenge-1-can-you-run-fastqe" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Can you run
+<code>fastqe</code>?</h3>
 <div class="callout-content">
-<p>What is the output of this command?</p>
+<p>What is the output of this command from your terminal?</p>
 <div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">fastqe</span> <span class="at">--help</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -408,8 +401,10 @@ View”</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Output </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
+<p>If you have <code>fastqe</code> installed correctly, you should get
+usage information:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -435,7 +430,7 @@ View”</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -443,7 +438,27 @@ View”</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a></h2>
+</section><section><h2 class="section-heading" id="case-study">Case Study<a class="anchor" aria-label="anchor" href="#case-study"></a></h2>
+<hr class="half-width"><p>Here’s brief background on the in class metagenomics project that
+we’re collecting sequencing data for. Garter snakes excrete sexually
+dimorphic pheromones to attract a mate. The hypothesis of our experiment
+is that male and female garter snakes host unique microbial communities
+in their mouths, cloacae and musk glands that contribute to sexually
+dimorphic bioengineering of these pheromone molecules. Figure 1 provides
+an overview of our 16S metagenomics analysis pipeline. For this lesson
+though, all you need are the FASTQ files.</p>
+<figure><img src="../fig1.png" alt="Images of experiment and data workflow" class="figure mx-auto d-block"><div class="figcaption">Figure 1. Overview of the in class metagenomics
+project. Using a saline swabbing technique, microbial samples were
+collected from garter snake tissues in class (A). Swabs were placed in
+sterile tubes to release collected microbes and DNA was extracted for
+downstream analysis (B). Barcoded primers were used to PCR amplify the
+microbial 16S ribosomal DNA repeat genes for each sample followed by
+Illumina sequencing of PCR amplicons (C-D). The DNA Subway Purple Line
+web-based software can be used to analyze FASTQ data files generated
+from Illumina sequencing to reveal the microbial population of our swabs
+(E). Garter snakes were provided by Dr. Rocky Parker in the JMU
+Department of Biology (A; yellow shirt).</div>
+</figure></section><section><h2 class="section-heading" id="figures">Figures<a class="anchor" aria-label="anchor" href="#figures"></a></h2>
 <hr class="half-width"><p>You can use standard markdown for static figures with the following
 syntax:</p>
 <p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
@@ -455,19 +470,21 @@ syntax:</p>
 <div class="callout-inner">
 <h3 class="callout-title">Callout</h3>
 <div class="callout-content">
-<p>Callout sections can highlight information.</p>
-<p>They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present “asides”: content that is
-not central to the narrative of the lesson, e.g. by providing the answer
-to a commonly-asked question.</p>
+<p>When using the command line code, lines that start with the # sign
+are typically text descriptors or instructions, not lines of code.</p>
+<p>The # character is used to indicate comments. A line starting with #
+line doesn’t do anything, in this case it’s just telling you what the
+next line of code does which is navigate to your computer’s desktop ○
+Wewillstickwiththisconventionthroughouttheactivity ○
+Commentscanoccuranywhereinaline,anythingafterthe#willbe ignored</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="math">Math<a class="anchor" aria-label="anchor" href="#math"></a></h2>
-<hr class="half-width"><p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
+</section><section><h2 class="section-heading" id="phred-scores">PHRED scores<a class="anchor" aria-label="anchor" href="#phred-scores"></a></h2>
+<hr class="half-width"><p>THE FASTQ format encodes quality as ASCII values, which are mapped to
+quality scores in the PHRED format. The PHRED score is calculated from
+P, the probability of a base-calling error:</p>
+<p><span class="math inline">\(Q = -10\log{P}\)</span></p>
 <p>Cool, right?</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -549,7 +566,7 @@ any links that you are not going to use.
   "url": "https://lonsbio.github.io/workbench-template/instructor/fastqe.html",
   "identifier": "https://lonsbio.github.io/workbench-template/instructor/fastqe.html",
   "dateCreated": "2024-09-04",
-  "dateModified": "2024-09-05",
+  "dateModified": "2024-09-06",
   "datePublished": "2024-09-06"
 }
 
