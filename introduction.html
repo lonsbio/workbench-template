@@ -355,24 +355,29 @@
 </div>
 </div>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a>
-for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R
-Markdown</a> for dynamic files that can render code into output. Please
-refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal"><li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol><div id="challenge-1-is-fastqe-installed-what-version" class="callout challenge">
+<hr class="half-width"><p>During sequencing, the nucleotide bases in a DNA or RNA sample
+(library) are determined by the sequencer. For each fragment in the
+library, a sequence is generated, also called a read, which is simply a
+succession of nucleotides.</p>
+<p>Modern sequencing technologies can generate a massive number of
+sequence reads in a single experiment. However, no sequencing technology
+is perfect, and each instrument will generate different types and amount
+of errors, such as incorrect nucleotides being called. These wrongly
+called bases are due to the technical limitations of each sequencing
+platform.</p>
+<p>Therefore, it is necessary to understand, identify and exclude
+error-types that may impact the interpretation of downstream analysis.
+Sequence quality control is therefore an essential first step in your
+analysis. Catching errors early saves time later on.</p>
+<p>To take a look at sequence quality along all sequences, we can use
+FASTQE. It is an open-source tool that provides a simple and fun way to
+quality control raw sequence data and print them as emoji. You can use
+it to give a quick impression of whether your data has any problems of
+which you should be aware before doing any further analysis.</p>
+<p>We will also use the tool <code>fastp</code> which can be used to
+filter sequence data to remove low quality reads.</p>
+
+<div id="challenge-1-is-fastqe-installed-what-version" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -383,7 +388,7 @@ reinforce the objectives.</li>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">fastqe</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> fastqe <span class="at">--version</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -425,8 +430,7 @@ reinforce the objectives.</li>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<p><a href="mailto:try@fastqe.com" class="email">try@fastqe.com</a>$
-fastp –version fastp 0.20.1</p>
+<p>$ fastp –version fastp 0.20.1</p>
 <p>You should get the same result from using <code>-v</code> and
 <code>--version</code> which are known as short and long options
 respectivlely. Long options will typically (but not always) have a
@@ -437,9 +441,41 @@ corresonidng short option.</p>
 </div>
 </section><section><h2 class="section-heading" id="command-line-structure">Command line structure<a class="anchor" aria-label="anchor" href="#command-line-structure"></a></h2>
 <hr class="half-width"><p>We have mentioned commands and options so far. The syntax is
-typiclaly as follows:</p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">A command line</div>
-</figure><div id="keypoints1" class="callout keypoints">
+typically as follows:</p>
+<figure><img src="https://raw.githubusercontent.com/lonsbio/workbench-template/main/shell_command_syntax.swc.svg" alt="Structure of a shell command." class="figure mx-auto d-block"><div class="figcaption">A command line</div>
+</figure><div id="challenge-3-run-this-command" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-3-run-this-command" class="callout-inner">
+<h3 class="callout-title">Challenge 3: Run this command:</h3>
+<div class="callout-content">
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span> /</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Output </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>dev/  home/  proc/  shared/  tmp/</code></pre>
+</div>
+<p>This is the filesystem of our browser-based portal.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -447,6 +483,7 @@ typiclaly as follows:</p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>Options can be long and short</li>
+<li>Structure of a shell command</li>
 <li>We have confirmed <code>fastp</code> and <code>fastqe</code> are
 installed</li>
 </ul></div>
