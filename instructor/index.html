@@ -218,7 +218,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="before.html">3. Sequence Quality before QC</a>
+        <a href="fastp.html">3. Introduction to fastp</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -227,25 +227,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="fastp.html">4. Introduction to fastp</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="after.html">5. Sequence Quality after QC</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush7">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading7">
-        <a href="conclusion.html">6. Conclusion</a>
+        <a href="conclusion.html">4. Conclusion</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -337,40 +319,22 @@ How can you analyse the quality of NGS data from the command line?
 <span class="visually-hidden">Duration: </span>00h 12m
 </td>
 <td>
- 3. <a href="before.html">Sequence Quality before QC</a>
+ 3. <a href="fastp.html">Introduction to fastp</a>
 </td>
 <td>
 How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 17m
+<span class="visually-hidden">Duration: </span>00h 24m
 </td>
 <td>
- 4. <a href="fastp.html">Introduction to fastp</a>
-</td>
-<td>
-How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
-</td>
-</tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 29m
-</td>
-<td>
- 5. <a href="after.html">Sequence Quality after QC</a>
+ 4. <a href="conclusion.html">Conclusion</a>
 </td>
 <td>
 How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
 </td>
 </tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 41m
-</td>
-<td>
- 6. <a href="conclusion.html">Conclusion</a>
-</td>
-<td>
-How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?
-</td>
-</tr><tr><td>
-<span class="visually-hidden">Duration: </span>00h 43m
+<span class="visually-hidden">Duration: </span>00h 26m
 </td>
 <td>
 Finish
@@ -387,79 +351,13 @@ any links that you are not going to use.
 <hr class="half-width"><p>This lesson is avialable from the (beta) try.fastqe.com portal:</p>
 <p><a href="http://115.146.95.20:8080/" class="external-link uri">http://115.146.95.20:8080/</a></p>
 <p>with all software and data available.</p>
-</section><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
-<hr class="half-width"><!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
---><p>Download the sample data, taken from a microbiome sequencing project
-investigating sexually dimorphic metagenomes associated with garter
-snake tissues:</p>
+<p>To download the sample data locally, use the following links:</p>
 <ul><li><a href="https://qubeshub.org/publications/1092/serve/2/4142?el=1&amp;download=1" class="external-link">Female
 snake, mouth sample</a></li>
 <li><a href="https://qubeshub.org/publications/1092/serve/2/4143?el=1&amp;download=1" class="external-link">Female
 snake, musk sample</a></li>
-</ul></section><section><h2 class="section-heading" id="software-setup">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a></h2>
-<hr class="half-width"><div id="details" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details</h3>
-<div class="callout-content">
-<p>Setup for different systems can be presented in dropdown menus via a
-<code>spoiler</code> tag. They will join to this discussion block, so
-you can give a general overview of the software used in this lesson here
-and fill out the individual operating systems (and potentially add more,
-e.g. online setup) in the solutions blocks.</p>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
-  <h3 class="accordion-header" id="headingSpoiler1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  Windows
-  </h3>
-</button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
-<div class="accordion-body">
-<p>Use PuTTY</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
-  <h3 class="accordion-header" id="headingSpoiler2">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  MacOS
-  </h3>
-</button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
-<div class="accordion-body">
-<p>Use Terminal.app</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
-  <h3 class="accordion-header" id="headingSpoiler3">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  Linux
-  </h3>
-</button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
-<div class="accordion-body">
-<p>Use Terminal</p>
-</div>
-</div>
-</div>
-</div>
+</ul><p>This data is taken from a microbiome sequencing project investigating
+sexually dimorphic metagenomes associated with garter snake tissue.</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.

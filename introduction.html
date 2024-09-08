@@ -208,6 +208,7 @@
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#command-line-structure">Command line structure</a></li>
+<li><a href="#case-study">Case Study</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -226,7 +227,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="before.html">3. Sequence Quality before QC</a>
+        <a href="fastp.html">3. Introduction to fastp</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -235,25 +236,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="fastp.html">4. Introduction to fastp</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="after.html">5. Sequence Quality after QC</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush7">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading7">
-        <a href="conclusion.html">6. Conclusion</a>
+        <a href="conclusion.html">4. Conclusion</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -419,7 +402,28 @@ filter sequence data to remove low quality reads.</p>
 <code>--version</code>
 </h3>
 <div class="callout-content">
-
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> fastp <span class="at">--version</span> <span class="co"># or use -v</span></span></code></pre>
+</div>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>When using the command line code, lines that start with the # sign
+are typically text descriptors or instructions, not lines of code.</p>
+<p>The # character is used to indicate comments. A line starting with #
+line doesn’t do anything, in this case it’s just telling you what the
+next line of code does which is navigate to your computer’s desktop - We
+will stick with this convention throughout the activity - Comments can
+occur anywhere in a line, anything after the # will be ignored</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -430,7 +434,12 @@ filter sequence data to remove low quality reads.</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<p>$ fastp –version fastp 0.20.1</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>$ fastp --version
+fastp 0.20.1</code></pre>
+</div>
 <p>You should get the same result from using <code>-v</code> and
 <code>--version</code> which are known as short and long options
 respectivlely. Long options will typically (but not always) have a
@@ -450,10 +459,10 @@ typically as follows:</p>
 <div id="challenge-3-run-this-command" class="callout-inner">
 <h3 class="callout-title">Challenge 3: Run this command:</h3>
 <div class="callout-content">
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span> /</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span> /</span></code></pre>
 </div>
 </div>
 </div>
@@ -475,6 +484,61 @@ typically as follows:</p>
 </div>
 </div>
 </div>
+</section><section><h2 class="section-heading" id="case-study">Case Study<a class="anchor" aria-label="anchor" href="#case-study"></a></h2>
+<hr class="half-width"><p>Here’s brief background on the in class metagenomics project that
+we’re collecting sequencing data for. Garter snakes excrete sexually
+dimorphic pheromones to attract a mate. The hypothesis of our experiment
+is that male and female garter snakes host unique microbial communities
+in their mouths, cloacae and musk glands that contribute to sexually
+dimorphic bioengineering of these pheromone molecules. Figure 1 provides
+an overview of our 16S metagenomics analysis pipeline. For this lesson
+though, all you need are the FASTQ files.</p>
+<figure><img src="https://raw.githubusercontent.com/lonsbio/workbench-template/main/fig1.png" alt="Images of experiment and data workflow" class="figure mx-auto d-block"><div class="figcaption">Figure 1. Overview of the in class metagenomics
+project. Using a saline swabbing technique, microbial samples were
+collected from garter snake tissues in class (A). Swabs were placed in
+sterile tubes to release collected microbes and DNA was extracted for
+downstream analysis (B). Barcoded primers were used to PCR amplify the
+microbial 16S ribosomal DNA repeat genes for each sample followed by
+Illumina sequencing of PCR amplicons (C-D). The DNA Subway Purple Line
+web-based software can be used to analyze FASTQ data files generated
+from Illumina sequencing to reveal the microbial population of our swabs
+(E). Garter snakes were provided by Dr. Rocky Parker in the JMU
+Department of Biology (A; yellow shirt).</div>
+</figure><p>The data for this experiment is located in the
+<code>/shared/fastqe/</code> folder.</p>
+<div id="challenge-4-what-are-the-files-available-from-this-experiment" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-4-what-are-the-files-available-from-this-experiment" class="callout-inner">
+<h3 class="callout-title">Challenge 4: What are the files available from this experiment?</h3>
+<div class="callout-content">
+<p>Hint: Use the <code>ls</code> command we have already seen</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span> /shared/fastqe/</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>female_musk2.fastq.gz  female_oral2.fastq.gz</code></pre>
+</div>
+<p>We have two files, one for each of the snake tissues sampled.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -486,6 +550,7 @@ typically as follows:</p>
 <li>Structure of a shell command</li>
 <li>We have confirmed <code>fastp</code> and <code>fastqe</code> are
 installed</li>
+<li>The case study and location of the data</li>
 </ul></div>
 </div>
 </div>
