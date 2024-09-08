@@ -58,14 +58,32 @@ fastqe 1.0
 
 ## Challenge 2: Can you do the same for `fastp`? Hint: try `-v` as well as `--version` 
 
+```bash
+$ fastp --version # or use -v
+```
+::::::::::::::::::::::::::::::::::::: callout
+
+When using the command line code, lines that start with the # sign are typically text descriptors or instructions, not lines of code.
+
+The # character is used to indicate comments. A line starting with # line doesn’t do anything, in this case it’s just telling you what the next line of code does which is navigate to your computer’s desktop
+- We will stick with this convention throughout the activity
+- Comments can occur anywhere in a line, anything after the # will be ignored
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::: solution 
+```output
 $ fastp --version
 fastp 0.20.1
+```
 
 You should get the same result from using `-v` and `--version` which are known as short and long options respectivlely. Long options will typically (but not always) have a corresonidng short option.
 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 
 ## Command line structure
 
@@ -95,12 +113,46 @@ This is the filesystem of our browser-based portal.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Case Study
+
+Here’s brief background on the in class metagenomics project that we’re collecting sequencing data for. Garter snakes excrete sexually dimorphic pheromones to attract a mate. The hypothesis of our experiment is that male and female garter snakes host unique microbial communities in their mouths, cloacae and musk glands that contribute to sexually dimorphic bioengineering of these pheromone molecules. Figure 1 provides an overview of our 16S metagenomics analysis pipeline. For this lesson though, all you need are the FASTQ files.
+
+![Figure 1. Overview of the in class metagenomics project. Using a saline swabbing technique, microbial samples were collected from garter snake tissues in class (A). Swabs were placed in sterile tubes to release collected microbes and DNA was extracted for downstream analysis (B). Barcoded primers were used to PCR amplify the microbial 16S ribosomal DNA repeat genes for each sample followed by Illumina sequencing of PCR amplicons (C-D). The DNA Subway Purple Line web-based software can be used to analyze FASTQ data files generated from Illumina sequencing to reveal the microbial population of our swabs (E). Garter snakes were provided by Dr. Rocky Parker in the JMU Department of Biology (A; yellow shirt).](https://raw.githubusercontent.com/lonsbio/workbench-template/main/fig1.png){alt='Images of experiment and data workflow'}
+
+The data for this experiment is located in the `/shared/fastqe/` folder.
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge 4: What are the files available from this experiment?
+
+Hint: Use the `ls` command we have already seen
+
+
+:::::::::::::::::::::::: solution
+
+```bash
+ls -F /shared/fastqe/
+```
+
+
+```output
+female_musk2.fastq.gz  female_oral2.fastq.gz
+```
+
+We have two files, one for each of the snake tissues sampled.
+:::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - Options can be long and short
 - Structure of a shell command
 - We have confirmed `fastp` and `fastqe` are installed
+- The case study and location of the data
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
