@@ -68,9 +68,7 @@ contact: 'andrew.lonsdale@lonsbio.com.au'
 episodes: 
 - introduction.md
 - fastqe.md
-- before.md
 - fastp.md
-- after.md
 - conclusion.md
 
 # Information for Learners
