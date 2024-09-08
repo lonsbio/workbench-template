@@ -1,5 +1,5 @@
 ---
-title: "Introduction to FASTQE"
+title: "The FASTQ format and FASTQE"
 teaching: 3
 exercises: 2
 ---
@@ -154,11 +154,60 @@ Phred Quality Score	ASCII code	Emoji
 18	3	😡
 19	4	💩
 ```
+
+
+
+## Case Study 
+
+
+Let's look at the output of FASTQE on our case study data:
+
+```bash
+$ fastqe /shared/fastqe/female_musk2.fastq.gz
+```
+
+which should give the following:
+
+```output
+$ fastqe /shared/fastqe/female_musk2.fastq.gz
+Filename        Statistic       Quality
+/shared/fastqe/female_musk2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😉 😁 😉 😁 😁 😉 😁 😁 😁 😁 😁 😛 😜 😉 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😉 😉 😉 😁 😁 😉 😁 😁 😉 😉 😉 😛 😋 😄 😄 😆 😄 😆 😆 😆 😆 😆 😘 😆 😆 😆 😆 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😃 😃 😘 😘 😘 😘 😘 😃 😃 😃 😃 😃 😃 😃 😘 😘 😃 😘 😃 😃 😘 😃 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃 😃 😃 😃 😃 😃 😚 😚 😚 😚 😚 😃 😚 😚 😚 😚 😃 😚 😚 😃 😃 😚 😚 😚 😃 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😗 😚 😚 😚 😗 😗 😗 😗 😗 😚 😚 😗 😗 😗 😗 😗 😗 😙 😗 😙 😙 😙 😙 😗 😙 😏 😊 😙 😙 😙 😊 😊 😏 😊 😊 😊 😏 😏 😅 😏 😅 😏 😊 😊 😊 😅 😅 😅 😅 😏 😅 😏 😅 😊 😏 😅 😏 😏 😅 😅 😅 😅 😏 😅 😅 😏 😅 😅 😀 😀 😀 😅 😀 😅 😀 😅 😀 🚨 😡
+```
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge 5: What about the other sample?
+
+Can you use `fastqe` on the other tissue sample? Which sample has better overall quality? Why?
+
+:::::::::::::::::::::::: solution
+
+You should run `fastqe` with a different  filename:
+```bash
+$ fastqe /shared/fastqe/female_oral2.fastq.gz 
+```
+and the output will be:
+
+```output
+Filename        Statistic       Quality
+/shared/fastqe/female_oral2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😉 😜 😛 😜 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😁 😁 😉 😁 😁 😉 😉 😉 😉 😉 😉 😉 😉 😁 😉 😉 😉 😉 😛 😄 😘 😃 😃 😃 😚 😚 😚 😚 😚 😚 😗 😗 😚 😗 😗 😗 😗 😗 😙 😗 😗 😗 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😊 😙 😙 😙 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😏 😊 😊 😊 😏 😊 😏 😏 😏 😏 😊 😊 😊 😊 😊 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😀 😀 😀 😅 😀 😀 🚨 😀 😀 😀 😀 😀 😀 🚨 🚨 💩 🚨 🚨 😀 🚨 💩 💩 💩 🚨 🚨 🚨 🚨 💩 🚨 🚨 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 😡 💩 😾
+```
+
+The mouth (oral) sample has inferirior quality, on average, towards the end of the reads. 
+
+:::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+To look at the quality of these files in more detail, we will next use the emoji-less command line tool `fastp`.
+
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - The options available for `fastqe`
-- The case study and location of the data
 - The formula for Q scores
+- FASTQE maps scores to emoji
+- FASTQE can be used to quickly asses the quality of sequencing data
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

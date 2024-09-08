@@ -1,5 +1,5 @@
 ---
-title: "Quality Control for Next Generation Sequencing"
+title: "Command line tools for quality control"
 teaching: 5
 exercises: 2
 ---
