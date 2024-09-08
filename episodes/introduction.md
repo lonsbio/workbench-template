@@ -89,7 +89,7 @@ You should get the same result from using `-v` and `--version` which are known a
 
 We have mentioned commands and options so far. The syntax is typically as follows:
 
-![A command line](https://raw.githubusercontent.com/lonsbio/workbench-template/main/shell_command_syntax.swc.svg){alt='Structure of a shell command.'}
+![The structure of a typical command line entry.](https://raw.githubusercontent.com/lonsbio/workbench-template/main/shell_command_syntax.swc.svg){alt='Structure of a shell command.'}
 
 
 ::::::::::::::::::::::::::::::::::::: challenge
