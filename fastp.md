@@ -13,11 +13,13 @@ The quality drop off observed could cause bias in downstream analyses with these
 	- from low quality score regions
 	- beginning/end of sequence
 	- removing adapters
--Filtering of sequences
+
+- Filtering of sequences
 	- with low mean quality score
 	- too short
 	- with too many ambiguous (N) bases
 
+`fastp` is a command line tool that performs many of these steps. Let's run it with our oral2 sample, and direct output of the new, filtered, data to a new file with `-o` opoption: 
 
 
 ```bash
@@ -61,8 +63,7 @@ bases trimmed due to adapters: 0
 :::::::::::::::::::::::::::::::::::::
 
 
-`fastp` produces an interactive HTML report. We can use our browser platform 
-to view it:
+In addition to command line information, `fastp` produces an interactive HTML report. We can use our browser platform  to view it:
 
 ```bash
 open fastp.html
