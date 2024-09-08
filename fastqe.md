@@ -4,19 +4,6 @@ teaching: 3
 exercises: 2
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
-
-- How can you analyse the quality of NGS data from the command line?
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: objectives
-
-- Introduce students to writing basic command line scripts
-- Analyze and assess the quality of FASTQ formatted short read NGS data
-- Trim/filter low quality reads in FASTQ files
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
@@ -88,6 +75,7 @@ HTML report options:
 For more information, vist https://fastqe.com
 ```
 
+FASTQE has a low of options! Note that this version does not implement all of them, hhowever we will be using it in the default mode.
 :::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -99,11 +87,11 @@ Although it looks complicated (and maybe it is), the FASTQ format is easy to und
 
 Each read, representing a fragment of the library, is encoded by 4 lines:
 
-Line	Description
-1	Always begins with @ followed by the information about the read
-2	The actual nucleic sequence
-3	Always begins with a + and contains sometimes the same info in line 1
-4	Has a string of characters which represent the quality scores associated with each base of the nucleic sequence; must have the same number of characters as line 2
+1.	Always begins with @ followed by the information about the read
+2.	The actual nucleic sequence
+3.	Always begins with a + and contains sometimes the same info in line 1
+4.	Has a string of characters which represent the quality scores associated with each base of the nucleic sequence; must have the same number of characters as line 2
+
 So for example, the first sequence in our file is:
 ```text
 @M00970:337:000000000-BR5KF:1:1102:17745:1557 1:N:0:CGCAGAAC+ACAGAGTT
@@ -120,9 +108,10 @@ THE FASTQ format encodes quality as ASCII values, which are mapped to quality sc
 
 $Q = -10\log{P}$
 
+These values are linked by the Phred Quality Score, Probability of incorrect base call, and Base call accuracy. We can summarise these:
+
 ```text
-Phred Quality Score	Probability of incorrect base call	Base call accuracy
-10	1 in 10	90%
+10	1 in 10		90%
 20	1 in 100	99%
 30	1 in 1000	99.9%
 40	1 in 10,000	99.99%
@@ -130,9 +119,9 @@ Phred Quality Score	Probability of incorrect base call	Base call accuracy
 60	1 in 1,000,000	99.9999%
 ```
 
+FASTQE aids in the interpretation of these by mapping the Phred Quality Score and 	ASCII code to an Emoji:
 
 ```
-Phred Quality Score	ASCII code	Emoji
 0	!	🚫
 1	”	❌
 2	#	👺
@@ -155,6 +144,7 @@ Phred Quality Score	ASCII code	Emoji
 19	4	💩
 ```
 
+Much easier to understand! Here we show the emoji for Q scores below 20, which represents a 1 in 100 probability of a base error. Given there can be many thousands of reads and bases in even a small sequeucing sample, the impact of these errors on downstream analysis and conclusions is significant. Steps we will see later in the lesson can be used to remove low quality reads.   
 
 
 ## Case Study 
@@ -171,7 +161,18 @@ which should give the following:
 ```output
 $ fastqe /shared/fastqe/female_musk2.fastq.gz
 Filename        Statistic       Quality
-/shared/fastqe/female_musk2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😉 😁 😉 😁 😁 😉 😁 😁 😁 😁 😁 😛 😜 😉 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😉 😉 😉 😁 😁 😉 😁 😁 😉 😉 😉 😛 😋 😄 😄 😆 😄 😆 😆 😆 😆 😆 😘 😆 😆 😆 😆 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😃 😃 😘 😘 😘 😘 😘 😃 😃 😃 😃 😃 😃 😃 😘 😘 😃 😘 😃 😃 😘 😃 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃 😃 😃 😃 😃 😃 😚 😚 😚 😚 😚 😃 😚 😚 😚 😚 😃 😚 😚 😃 😃 😚 😚 😚 😃 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😚 😗 😚 😚 😚 😗 😗 😗 😗 😗 😚 😚 😗 😗 😗 😗 😗 😗 😙 😗 😙 😙 😙 😙 😗 😙 😏 😊 😙 😙 😙 😊 😊 😏 😊 😊 😊 😏 😏 😅 😏 😅 😏 😊 😊 😊 😅 😅 😅 😅 😏 😅 😏 😅 😊 😏 😅 😏 😏 😅 😅 😅 😅 😏 😅 😅 😏 😅 😅 😀 😀 😀 😅 😀 😅 😀 😅 😀 🚨 😡
+/shared/fastqe/female_musk2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 
+😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁
+😁 😁 😁 😁 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😉 😁 😉 😁 😁 😉 😁 😁 😁
+😁 😁 😛 😜 😉 😁 😉 😉 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😉 😉 😉 😁
+😁 😉 😁 😁 😉 😉 😉 😛 😋 😄 😄 😆 😄 😆 😆 😆 😆 😆 😘 😆 😆 😆 😆 😘 😘 😘 😘 😘
+😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😘 😃 😃 😘 😘 😘 😘 😘 😃 😃 😃 😃 😃 😃 😃 😘 😘
+😃 😘 😃 😃 😘 😃 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃 😃 😃 😃 😃 😃 😃 😃 😚 😃 😃
+😃 😃 😃 😃 😃 😚 😚 😚 😚 😚 😃 😚 😚 😚 😚 😃 😚 😚 😃 😃 😚 😚 😚 😃 😚 😚 😚 😚 
+😚 😚 😚 😚 😚 😚 😚 😚 😚 😗 😚 😚 😚 😗 😗 😗 😗 😗 😚 😚 😗 😗 😗 😗 😗 😗 😙 😗
+😙 😙 😙 😙 😗 😙 😏 😊 😙 😙 😙 😊 😊 😏 😊 😊 😊 😏 😏 😅 😏 😅 😏 😊 😊 😊 😅 😅
+😅 😅 😏 😅 😏 😅 😊 😏 😅 😏 😏 😅 😅 😅 😅 😏 😅 😅 😏 😅 😅 😀 😀 😀 😅 😀 😅 😀
+😅 😀 🚨 😡
 ```
 
 
