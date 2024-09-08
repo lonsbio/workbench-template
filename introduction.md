@@ -43,12 +43,12 @@ associated with the lessons. They appear in the "Instructor View"
 
 ::::::::::::::::::::::::::::::::::::: challenge 
 
-## Challenge 1: Can you do it?
+## Challenge 1: Is FASTQE installed? What version?
 
 What is the output of this command?
 
 ```bash
-fastqe --help
+fastqe --version
 ```
 
 :::::::::::::::::::::::: solution 
@@ -56,74 +56,33 @@ fastqe --help
 ## Output
  
 ```output
-Read one or more FASTQ files, compute quality stats for each file, print as emoji... for some reason.😄 
-
-🚨 Rust and WebAssembly beta: only command line options with a  ✅  are functional  
- rustc 1.75.0-beta.7 emcc 3.1.50
-
-Usage: fastqe [OPTIONS] [FASTQ_FILE]...
-
-Arguments:
-  [FASTQ_FILE]...  Input FASTQ files
-
-Options:
-      --noheader              Hide the header before sample output ❌
-      --output   Write output to OUTPUT_FILE instead of stdout
-      --long     Buffer memory for long reads up to READ_BUFFER bp long ❌ [default: 500]
-      --log         Record program progress in LOG_FILE ✅
-  -h, --help                  Print help
-  -V, --version               Print version
+fastqe 1.0
 ```
 
 :::::::::::::::::::::::::::::::::
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+## Challenge 2: Can you do the same for `fastp`? Hint: try `-v` as well as `--version` 
 
 :::::::::::::::::::::::: solution 
+try@fastqe.com$ fastp --version
+fastp 0.20.1
 
-You can add a line with at least three colons and a `solution` tag.
+You should get the same result from using `-v` and `--version` which are known as short and long options respectivlely. Long options will typically (but not always) have a corresonidng short option.
 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Figures
+## Command line structure
 
-You can use standard markdown for static figures with the following syntax:
+We have mentioned commands and options so far. The syntax is typiclaly as follows:
 
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-::::::::::::::::::::::::::::::::::::: callout
-
-Callout sections can highlight information.
-
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
+![A command line](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- Options can be long and short
+- We have confirmed `fastp` and `fastqe` are installed
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[r-markdown]: https://rmarkdown.rstudio.com/

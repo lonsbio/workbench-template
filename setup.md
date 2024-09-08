@@ -2,6 +2,17 @@
 title: Setup
 ---
 
+
+## Quick Start
+
+
+This lesson is avialable from the (beta) try.fastqe.com portal:
+
+http://115.146.95.20:8080/
+
+with all software and data available. 
+
+
 ## Data Sets
 
 <!--
