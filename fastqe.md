@@ -75,7 +75,7 @@ HTML report options:
 For more information, vist https://fastqe.com
 ```
 
-FASTQE has a low of options! Note that this version does not implement all of them, hhowever we will be using it in the default mode.
+FASTQE has a lot of options! Note that this version does not implement all of them, however we will be using it in the default mode.
 :::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -111,6 +111,7 @@ $Q = -10\log{P}$
 These values are linked by the Phred Quality Score, Probability of incorrect base call, and Base call accuracy. We can summarise these:
 
 ```text
+PHRED	Probability	Accuracy
 10	1 in 10		90%
 20	1 in 100	99%
 30	1 in 1000	99.9%
@@ -122,6 +123,7 @@ These values are linked by the Phred Quality Score, Probability of incorrect bas
 FASTQE aids in the interpretation of these by mapping the Phred Quality Score and 	ASCII code to an Emoji:
 
 ```
+PHRED	ASCII	Emoji
 0	!	🚫
 1	”	❌
 2	#	👺
@@ -144,7 +146,7 @@ FASTQE aids in the interpretation of these by mapping the Phred Quality Score an
 19	4	💩
 ```
 
-Much easier to understand! Here we show the emoji for Q scores below 20, which represents a 1 in 100 probability of a base error. Given there can be many thousands of reads and bases in even a small sequeucing sample, the impact of these errors on downstream analysis and conclusions is significant. Steps we will see later in the lesson can be used to remove low quality reads.   
+Much easier to understand! Here we show the emoji for Q scores below 20, which represents a 1 in 100 probability of a base error. Given there can be many thousands of reads and bases in even a small sequeuncing sample, the impact of these errors on downstream analysis and conclusions is significant. Steps we will see later in the lesson can be used to remove low quality reads.   
 
 
 ## Case Study 
@@ -192,7 +194,18 @@ and the output will be:
 
 ```output
 Filename        Statistic       Quality
-/shared/fastqe/female_oral2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😉 😜 😛 😜 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😁 😁 😉 😁 😁 😉 😉 😉 😉 😉 😉 😉 😉 😁 😉 😉 😉 😉 😛 😄 😘 😃 😃 😃 😚 😚 😚 😚 😚 😚 😗 😗 😚 😗 😗 😗 😗 😗 😙 😗 😗 😗 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😊 😙 😙 😙 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😏 😊 😊 😊 😏 😊 😏 😏 😏 😏 😊 😊 😊 😊 😊 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😅 😀 😀 😀 😅 😀 😀 🚨 😀 😀 😀 😀 😀 😀 🚨 🚨 💩 🚨 🚨 😀 🚨 💩 💩 💩 🚨 🚨 🚨 🚨 💩 🚨 🚨 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 😡 💩 😾
+/shared/fastqe/female_oral2.fastq.gz    mean    😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁
+😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁
+😁 😁 😁 😁 😁 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😁 😁
+😁 😁 😉 😜 😛 😜 😉 😁 😁 😁 😁 😁 😁 😁 😁 😁 😉 😉 😁 😁 😉 😁 😁 😉 😉 😉 😉 😉
+😉 😉 😉 😁 😉 😉 😉 😉 😛 😄 😘 😃 😃 😃 😚 😚 😚 😚 😚 😚 😗 😗 😚 😗 😗 😗 😗 😗
+😙 😗 😗 😗 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙 😙
+😙 😙 😙 😙 😙 😙 😊 😙 😙 😙 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊
+😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😊 😏 😊 😊 😊 😏 😊 😏 😏 😏 😏 😊 😊 😊 😊 😊 😏 😏
+😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😏 😅 😅 😅 😅 😅 😅 😅
+😅 😅 😅 😅 😅 😅 😀 😀 😀 😅 😀 😀 🚨 😀 😀 😀 😀 😀 😀 🚨 🚨 💩 🚨 🚨 😀 🚨 💩 💩
+💩 🚨 🚨 🚨 🚨 💩 🚨 🚨 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩 💩
+💩 😡 💩 😾
 ```
 
 The mouth (oral) sample has inferirior quality, on average, towards the end of the reads. 
