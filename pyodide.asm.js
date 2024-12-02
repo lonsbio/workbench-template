@@ -1,4 +1,3 @@
-"use strict";
 
 var Module = (() => {
   var _scriptName = typeof document != 'undefined' ? document.currentScript?.src : undefined;
@@ -14,4 +13,7 @@ var Module=Object.assign({},moduleArg);var readyPromiseResolve,readyPromiseRejec
 }
 );
 })();
-globalThis._createPyodideModule = _createPyodideModule;
+if (typeof exports === 'object' && typeof module === 'object')
+  module.exports = Module;
+else if (typeof define === 'function' && define['amd'])
+  define([], () => Module);
